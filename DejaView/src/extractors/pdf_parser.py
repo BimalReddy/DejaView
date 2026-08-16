@@ -20,5 +20,5 @@ def extract_text_from_pdf(file_path):
         return text.strip()
     
     except Exception as e:
-        logging.error(f"Error reading PDF {file_path}: {e}")
+        logging.error("Error reading PDF {file_path}: {e}")
         return ""
