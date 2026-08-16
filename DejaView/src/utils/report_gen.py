@@ -39,9 +39,9 @@ def save_report_as_json(report_data, output_filepath):
         os.makedirs(os.path.dirname(output_filepath), exist_ok=True)
         with open(output_filepath, 'w', encoding='utf-8') as f:
             json.dump(report_data, f, indent=4)
-        logging.info(f"Report successfully saved to {output_filepath}")
+        logging.info("Report successfully saved to {output_filepath}")
     except Exception as e:
-        logging.error(f"Failed to save JSON report: {e}")
+        logging.error("Failed to save JSON report: {e}")
 
 
 def print_cli_summary(report_data):
@@ -65,10 +65,10 @@ def print_cli_summary(report_data):
     for res in report_data["all_results"]:
         f1 = os.path.basename(res["file_1"])[:22]
         f2 = os.path.basename(res["file_2"])[:22]
-        score = f"{res['similarity_score']}%"
+        score = "{res['similarity_score']}%"
         
         # Mark suspicious entries with an asterisk
         flag_indicator = " [FLAGGED]" if res.get("flagged") else ""
-        print(f"{f1:<25} {f2:<25} {score:<10}{flag_indicator}")
+        print("{f1:<25} {f2:<25} {score:<10}{flag_indicator}")
 
     print("="*60 + "\n")
