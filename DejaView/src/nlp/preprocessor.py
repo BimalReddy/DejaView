@@ -13,7 +13,7 @@ try:
     nltk.download('stopwords', quiet=True)
     nltk.download('wordnet', quiet=True)
 except Exception as :
-    logging.warning("Could not download NLTK data: {e}")
+    logging.warning(f"Could not download NLTK data: {e}")
 
 def preprocess_text(text):
     """
@@ -49,5 +49,5 @@ def preprocess_text(text):
 # Quick test block (runs only if you execute this specific file directly)
 if __name__ == "__main__":
     sample_text = "The quick brown foxes are jumping over the lazy dogs! 123"
-    print("Original: {sample_text}")
-    print("Cleaned:  {preprocess_text(sample_text)}")
+    print(f"Original: {sample_text}")
+    print(f"Cleaned:  {preprocess_text(sample_text)}")
