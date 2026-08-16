@@ -48,9 +48,7 @@ def main():
         raw_text = extract_text(file_path)
         if not raw_text:
             logging.warning(f"Could not extract text from {filename}. Skipping.")
-            continue
-            
-        # Clean text (remove stopwords, punctuation, lemmatize)
+            continue
         clean_text = preprocess_text(raw_text)
         if not clean_text:
             logging.warning(f"No usable text left after cleaning {filename}. Skipping.")
