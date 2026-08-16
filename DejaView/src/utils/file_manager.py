@@ -9,7 +9,7 @@ def get_submission_files(upload_dir):
     Scans the upload directory and returns a list of valid PDF and DOCX file paths.
     """
     if not os.path.exists(upload_dir):
-        logging.error("Upload directory does not exist: {upload_dir}")
+        logging.error(f"Upload directory does not exist: {upload_dir}")
         return []
 
     valid_files = []
@@ -19,7 +19,7 @@ def get_submission_files(upload_dir):
             if ext in SUPPORTED_EXTENSIONS:
                 valid_files.append(os.path.join(root, file))
             else:
-                logging.warning("Ignoring unsupported file type: {file}")
+                logging.warning(f"Ignoring unsupported file type: {file}")
 
     return valid_files
 
@@ -39,4 +39,4 @@ def clear_directory(folder_path):
             elif os.path.isdir(file_path):
                 shutil.rmtree(file_path)
         except Exception as e:
-            logging.error("Failed to delete {file_path}: {e}")
+            logging.error(f"Failed to delete {file_path}: {e}")
