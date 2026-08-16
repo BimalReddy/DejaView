@@ -41,7 +41,7 @@ def save_report_as_json(report_data, output_filepath):
             json.dump(report_data, f, indent=4)
         logging.info("Report successfully saved to {output_filepath}")
     except Exception as e:
-        logging.error("Failed to save JSON report: {e}")
+        logging.error(f"Failed to save JSON report: {e}")
 
 
 def print_cli_summary(report_data):
@@ -69,6 +69,6 @@ def print_cli_summary(report_data):
         
         # Mark suspicious entries with an asterisk
         flag_indicator = " [FLAGGED]" if res.get("flagged") else ""
-        print("{f1:<25} {f2:<25} {score:<10}{flag_indicator}")
+        print(f"{f1:<25} {f2:<25} {score:<10}{flag_indicator}")
 
     print("="*60 + "\n")
