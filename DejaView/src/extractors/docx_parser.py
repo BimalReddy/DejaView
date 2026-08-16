@@ -17,5 +17,5 @@ def extract_text_from_docx(file_path):
         return text.strip()
         
     except Exception as e:
-        logging.error("Error reading DOCX {file_path}: {e}")
+        logging.error(f"Error reading DOCX {file_path}: {e}")
         return ""
