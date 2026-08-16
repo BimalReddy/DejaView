@@ -27,7 +27,7 @@ def compute_similarity(documents_dict):
         tfidf_matrix = vectorizer.fit_transform(texts)
     except ValueError as e:
         # Handles cases where all documents are empty after preprocessing
-        logging.error(f"Error generating TF-IDF matrix: {e}")
+        logging.error("Error generating TF-IDF matrix: {e}")
         return []
 
     # 2. Compute Cosine Similarity Matrix
@@ -68,4 +68,4 @@ if __name__ == "__main__":
 
     rankings = compute_similarity(sample_docs)
     for pair in rankings:
-        print(f"{pair['file_1']} <-> {pair['file_2']}: {pair['similarity_score']}% match")
+        print("{pair['file_1']} <-> {pair['file_2']}: {pair['similarity_score']}% match")
