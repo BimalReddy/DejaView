@@ -13,4 +13,4 @@ def extract_text(file_path):
     elif ext == '.docx':
         return extract_text_from_docx(file_path)
     else:
-        raise ValueError(f"Unsupported file format: {ext}")
+        raise ValueError("Unsupported file format: ",ext)
