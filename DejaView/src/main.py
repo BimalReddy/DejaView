@@ -33,27 +33,27 @@ def main():
     # 1. Gather all submitted files
     files = get_submission_files(uploads_dir)
     if not files:
-        logging.error(f"No valid PDF or DOCX files found in '{uploads_dir}'. Exiting.")
+        logging.error("No valid PDF or DOCX files found in '{uploads_dir}'. Exiting.")
         return
 
-    logging.info(f"Found {len(files)} files. Starting extraction and NLP processing...")
+    logging.info("Found {len(files)} files. Starting extraction and NLP processing...")
 
     # 2. Extract and Preprocess text for every file
     processed_docs = {}
     for file_path in files:
         filename = os.path.basename(file_path)
-        logging.info(f"Processing: {filename}")
+        logging.info("Processing: {filename}")
         
         # Extract raw text
         raw_text = extract_text(file_path)
         if not raw_text:
-            logging.warning(f"Could not extract text from {filename}. Skipping.")
+            logging.warning("Could not extract text from {filename}. Skipping.")
             continue
             
         # Clean text (remove stopwords, punctuation, lemmatize)
         clean_text = preprocess_text(raw_text)
         if not clean_text:
-            logging.warning(f"No usable text left after cleaning {filename}. Skipping.")
+            logging.warning("No usable text left after cleaning {filename}. Skipping.")
             continue
             
         # Store in our dictionary
